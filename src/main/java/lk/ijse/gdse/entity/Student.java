@@ -2,6 +2,7 @@ package lk.ijse.gdse.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
@@ -17,6 +18,6 @@ public class Student {
     private String name;
     private String address;
 
-    @OneToMany (mappedBy = "student")
-    private List<Laptop> laptops; // One student has many laptops>
+    @ManyToMany
+    private List<Laptop> laptops;
 }

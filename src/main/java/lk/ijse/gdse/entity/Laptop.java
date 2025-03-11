@@ -1,12 +1,11 @@
 package lk.ijse.gdse.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,9 +16,7 @@ public class Laptop {
     private int lid;
     private String name;
 
-    @JoinColumn (name = "student_id")
-    @ManyToOne
-    private Student student; // One laptop belongs to one student
-
+    @ManyToMany(mappedBy = "laptops")
+    private List<Student> students;
 
 }
