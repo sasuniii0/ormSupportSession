@@ -1,6 +1,7 @@
 package lk.ijse.gdse;
 
 import lk.ijse.gdse.config.FactoryConfiguration;
+import lk.ijse.gdse.entity.Laptop;
 import lk.ijse.gdse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,17 +12,17 @@ public class Main {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        /*
-        Student student = new Student();
-        student.setId(2);
-        student.setName("Ann2");
-        student.setAddress("Gampaha2");
-        */
+        Laptop laptop = new Laptop();
+        laptop.setLid(1);
+        laptop.setName("Dell");
 
-        //session.save(student);
-        //session.update(student);
-        //System.out.println(session.get(Student.class, 1));
-        session.delete(session.get(Student.class, 2));
+        Student student = new Student();
+        student.setId(1);
+        student.setName("Joe");
+        student.setAddress("Kandy");
+
+        session.persist(laptop);
+        session.persist(student);
 
         transaction.commit();
         session.close();

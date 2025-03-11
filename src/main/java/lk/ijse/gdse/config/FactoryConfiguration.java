@@ -1,5 +1,6 @@
 package lk.ijse.gdse.config;
 
+import lk.ijse.gdse.entity.Laptop;
 import lk.ijse.gdse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +11,9 @@ public class FactoryConfiguration {
     private SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-        Configuration configuration = new Configuration().configure().addAnnotatedClass(Student.class);
+        Configuration configuration = new Configuration().configure()
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Laptop.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }
