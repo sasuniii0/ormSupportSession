@@ -2,8 +2,10 @@ package lk.ijse.gdse.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +17,6 @@ public class Student {
     private String name;
     private String address;
 
-    @OneToOne
-    private Laptop laptop;
+    @OneToMany (mappedBy = "student")
+    private List<Laptop> laptops; // One student has many laptops>
 }
